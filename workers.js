@@ -3,7 +3,7 @@
 /**
  * static files (404.html, sw.js, conf.js)
  */
-const ASSET_URL = 'https://geekertao.github.io/gh-proxy/'
+const ASSET_URL = 'https://BiliBiliWangZiYi.github.io/'
 // 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 '/gh/'，注意，少一个杠都会错！
 const PREFIX = '/'
 // 分支文件使用jsDelivr镜像的开关，0为关闭，默认关闭
@@ -31,6 +31,8 @@ const exp4 = /^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com\/.+?\/.+?\
 const exp5 = /^(?:https?:\/\/)?gist\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+$/i
 const exp6 = /^(?:https?:\/\/)?github\.com\/.+?\/.+?\/tags.*$/i
 const exp7 = /^(?:https?:\/\/)?api\.github\.com\/.*$/i
+// 新增：匹配 *.github.io
+const exp8 = /^(?:https?:\/\/)?[a-zA-Z0-9-]+\.github\.io(\/.*)?$/i
 
 /**
  * @param {any} body
@@ -63,7 +65,7 @@ addEventListener('fetch', e => {
 
 
 function checkUrl(u) {
-    for (let i of [exp1, exp2, exp3, exp4, exp5, exp6, exp7]) {
+    for (let i of [exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8]) {
         if (u.search(i) === 0) {
             return true
         }
@@ -86,7 +88,7 @@ async function fetchHandler(e) {
     path = urlObj.href.substr(urlObj.origin.length + PREFIX.length).replace(/^https?:\/+/, 'https://')
     if (path.search(exp7) === 0) {
         return httpHandler(req, path)
-    } else if (path.search(exp1) === 0 || path.search(exp5) === 0 || path.search(exp6) === 0 || path.search(exp3) === 0 || path.search(exp4) === 0) {
+    } else if (path.search(exp8) === 0 || path.search(exp1) === 0 || path.search(exp5) === 0 || path.search(exp6) === 0 || path.search(exp3) === 0) {
         return httpHandler(req, path)
     } else if (path.search(exp2) === 0) {
         if (Config.jsdelivr) {
@@ -181,4 +183,3 @@ async function proxy(urlObj, reqInit) {
         headers: resHdrNew,
     })
 }
-
