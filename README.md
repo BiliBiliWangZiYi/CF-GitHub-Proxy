@@ -1,5 +1,6 @@
 # CF-Workers-GitHub-Proxy
 #### 2025.5.25修改，现已支持github api加速！🎉🎉🎉
+#### 2026.6.10修改，现已支持github.io加速！🎉🎉🎉
 ## 桌面端预览
 ![desktop](src/desktop.png)
 ## 移动端预览
@@ -9,7 +10,7 @@ github release、archive以及项目文件的加速项目，支持clone，github
 
 ## 使用
 
-直接在copy出来的url前加`https://ghfile.geekertao.top/`,`https://gh.geekertao.top/`,`https://github.dpik.top/`或`https://gh.felicity.ac.cn/`即可
+直接在copy出来的url前加`fastgithub.ccwu.cc`即可
 
 也可以直接访问，在input输入
 
@@ -34,6 +35,8 @@ github release、archive以及项目文件的加速项目，支持clone，github
 - gist：https://gist.githubusercontent.com/cielpy/351557e6e465c12986419ac5a4dd2568/raw/cmd.py
 
 - api：https://api.github.com/repos/Geekertao/CF-Workers-GitHub-Proxy
+- 
+- github.io：https://yourusername.github.io/yourfile
 ## Workers 部署方法
 ### 部署 Cloudflare Worker：
 
