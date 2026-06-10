@@ -35,7 +35,7 @@ github release、archive以及项目文件的加速项目，支持clone，github
 - gist：https://gist.githubusercontent.com/cielpy/351557e6e465c12986419ac5a4dd2568/raw/cmd.py
 
 - api：https://api.github.com/repos/Geekertao/CF-Workers-GitHub-Proxy
-- 
+  
 - github.io：https://yourusername.github.io/yourfile
 ## Workers 部署方法
 ### 部署 Cloudflare Worker：
